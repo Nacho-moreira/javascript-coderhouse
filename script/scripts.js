@@ -1,7 +1,6 @@
 /* let nombreUsuario = prompt("Introduce tu nombre");
 let edadUsuario = parseInt(prompt(`Hola ${nombreUsuario}, por favor introduce tu edad`));
 
-let mazoCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
 
 if (edadUsuario < 18) {
@@ -11,10 +10,20 @@ if (edadUsuario < 18) {
 };
 let comienzo = confirm("¿Deseas comenzar a jugar?") */
 
-const nombreUsuario = document.getElementById("nombre").value;
-const edadUsuario = document.getElementById("edad").value;
+let mazoCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-console.log(`El nombre de usuario es ${nombreUsuario} y su edad es ${edadUsuario}`)
+document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nombreJugador = document.getElementById("nombre").value;
+    const edadJugador = document.getElementById("edad").value;
+
+    if (edadJugador < 18) {
+        alert("Disculpa, no puedes jugar aún")
+    } else {
+        juego()
+    }
+})
 
 function juego() {
     let mazo = mazoCartas;
@@ -41,9 +50,9 @@ function juego() {
         }
     }
 };
-
+/* 
 if (comienzo == true) {
     juego();
 } else {
     alert("¡Hasta luego!")
-}
+} */

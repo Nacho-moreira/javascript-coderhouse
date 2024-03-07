@@ -9,13 +9,15 @@
 <body>
     <h1 class="title">Bienvenido!</h1>
     <img src="./assets/logo-juego.png" alt="Logo">
-    <form action="" method="get" target_self>
-        <label for="nombre">Nombre del usuario:</label>
-        <input type="text" class="nombreJugador" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
-        <br>
-        <label for="edad">Edad:</label>
-        <input type="number" class="edadJugador" id="edad" name="edad" placeholder="Ingresa tu edad" min="0" required>
-        <br>
+    <form id="formulario">
+        <fieldset>
+            <label for="nombre">Nombre del usuario:</label>
+            <input type="text" class="nombreJugador" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            <br>
+            <label for="edad">Edad:</label>
+            <input type="number" class="edadJugador" id="edad" name="edad" placeholder="Ingresa tu edad" min="0" required>
+            <br>
+        </fieldset>
         <input type="submit" value="Enviar">
     </form>
 
