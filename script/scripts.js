@@ -11,7 +11,10 @@ if (edadUsuario < 18) {
 };
 let comienzo = confirm("¿Deseas comenzar a jugar?") */
 
-const nombreUsuario = document.getElementById()
+const nombreUsuario = document.getElementById("nombre").value;
+const edadUsuario = document.getElementById("edad").value;
+
+console.log(`El nombre de usuario es ${nombreUsuario} y su edad es ${edadUsuario}`)
 
 function juego() {
     let mazo = mazoCartas;
