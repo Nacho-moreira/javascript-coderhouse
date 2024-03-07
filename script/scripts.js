@@ -1,4 +1,4 @@
-let nombreUsuario = prompt("Introduce tu nombre");
+/* let nombreUsuario = prompt("Introduce tu nombre");
 let edadUsuario = parseInt(prompt(`Hola ${nombreUsuario}, por favor introduce tu edad`));
 
 let mazoCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -9,7 +9,9 @@ if (edadUsuario < 18) {
 } else {
     alert(`Excelente ${nombreUsuario}, bienvenido al juego.`);
 };
-let comienzo = confirm("¿Deseas comenzar a jugar?")
+let comienzo = confirm("¿Deseas comenzar a jugar?") */
+
+const nombreUsuario = document.getElementById()
 
 function juego() {
     let mazo = mazoCartas;
