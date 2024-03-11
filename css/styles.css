@@ -50,6 +50,19 @@ main {
     margin-top: 10px;
 }
 
+#nombre, #edad {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 18px;
+    transition: ease-in 0.2s;
+    border-radius: 10px;
+}
+#nombre:focus, #edad:focus {
+    font-size: 22px;
+    color: #BDBBBE;
+    background-color: #363636;
+    border-radius: 0;
+}
+
 .btn {
     height: 36px;
     width: 112px;
