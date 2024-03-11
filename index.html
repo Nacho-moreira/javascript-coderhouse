@@ -7,20 +7,23 @@
     <title>Blackjack</title>
 </head>
 <body>
-    <h1 class="title">Bienvenido!</h1>
-    <img src="./assets/logo-juego.png" alt="Logo">
-    <form id="formulario">
-        <fieldset>
-            <label for="nombre">Nombre del usuario:</label>
-            <input type="text" class="nombreJugador" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
-            <br>
-            <label for="edad">Edad:</label>
-            <input type="number" class="edadJugador" id="edad" name="edad" placeholder="Ingresa tu edad" min="0" required>
-            <br>
-        </fieldset>
-        <input type="submit" value="Enviar">
-    </form>
-
+    <h1 class="title-home">Bienvenido!</h1>
+    <main>
+        <img src="./assets/logo-juego.png" alt="Logo">
+        <div class="container">
+            <form id="formulario">
+                <fieldset class="form-container">
+                    <label for="nombre">Nombre del usuario:</label>
+                    <input type="text" class="nombreJugador" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                    <br>
+                    <label for="edad">Edad:</label>
+                    <input type="number" class="edadJugador" id="edad" name="edad" placeholder="Ingresa tu edad" min="0" required>
+                    <br>
+                </fieldset>
+                <input class="btn" type="submit" value="Enviar">
+            </form>
+        </div> 
+    </main>
     <script src="./script/scripts.js"></script>
 </body>
 </html>
