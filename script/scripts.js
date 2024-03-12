@@ -10,14 +10,14 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     const edadJugador = document.getElementById("edad").value;
     const edadMinima = document.getElementById('edadMinima');
 
-    localStorage.setItem('jugador', nombreJugador);
+    localStorage.setItem('jugador', JSON.stringify(nombreJugador));
 
     if (edadJugador < 18) {
         edadMinima.classList.toggle('hidden');
     } else {
         formDiv.classList.toggle('hidden');
         gameContainer.classList.toggle('hidden');
-        //juego()
+        juego()
     }
 })
 
@@ -25,9 +25,13 @@ function juego() {
     
     let mazo = mazoCartas;
     let cartaElegida = mazo[Math.floor(Math.random() * mazo.length)];
-    let jugador = JSON.stringify(jugador);
+    let jugador = localStorage.getItem('jugador');
+    const welcomeTitle = document.getElementById('welcome');
+    welcomeTitle.innerText = `Comencemos a jugar, ${jugador}.`;
+    const cartas = document.querySelectorAll('#gameContainer p');
 
-    alert(`Tu primer carta tiene el número ${cartaElegida}`);
+    console.log(cartas);
+    /* alert(`Tu primera carta tiene el número ${cartaElegida}`);
     let pedirOtra = confirm(`¿Quieres otra carta?`);
     if (pedirOtra == false) {
         alert(`Fin del juego. Hasta la próxima.`);
@@ -53,7 +57,7 @@ function juego() {
             nuevaCarta = mazo[Math.floor(Math.random() * mazo.length)];
             sumaCartas = sumaCartas + nuevaCarta;
         }
-    }
+    } */
 };
 /* 
 if (comienzo == true) {
