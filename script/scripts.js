@@ -1,27 +1,23 @@
-/* let nombreUsuario = prompt("Introduce tu nombre");
-let edadUsuario = parseInt(prompt(`Hola ${nombreUsuario}, por favor introduce tu edad`));
-
-
-
-if (edadUsuario < 18) {
-    alert("No che, no deberías estar jugando acá.");
-} else {
-    alert(`Excelente ${nombreUsuario}, bienvenido al juego.`);
-};
-let comienzo = confirm("¿Deseas comenzar a jugar?") */
 
 let mazoCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+const formDiv = document.getElementById('formDiv');
+const gameContainer = document.getElementById('gameContainer');
 
 document.getElementById("formulario").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const nombreJugador = document.getElementById("nombre").value;
     const edadJugador = document.getElementById("edad").value;
+    const edadMinima = document.getElementById('edadMinima');
+
+    localStorage.setItem('jugador', nombreJugador);
 
     if (edadJugador < 18) {
-        alert("Disculpa, no puedes jugar aún")
+        edadMinima.classList.toggle('hidden');
     } else {
-        juego()
+        formDiv.classList.toggle('hidden');
+        gameContainer.classList.toggle('hidden');
+        //juego()
     }
 })
 
@@ -29,6 +25,8 @@ function juego() {
     
     let mazo = mazoCartas;
     let cartaElegida = mazo[Math.floor(Math.random() * mazo.length)];
+    let jugador = JSON.stringify(jugador);
+
     alert(`Tu primer carta tiene el número ${cartaElegida}`);
     let pedirOtra = confirm(`¿Quieres otra carta?`);
     if (pedirOtra == false) {
@@ -40,12 +38,15 @@ function juego() {
             alert(`Tus cartas suman ${sumaCartas}`)
             if (sumaCartas == 21) {
                 alert('¡Blackjack!');
+                localStorage.clear();
                 break;
             } else if (pedirOtra == false) {
                 alert('Hasta pronto.');
+                localStorage.clear();
                 break;
             } else if(sumaCartas > 21) {
                 alert("¡Perdiste! Fin del juego.")
+                
                 break
             };
             pedirOtra = confirm('¿Quieres otra carta?');

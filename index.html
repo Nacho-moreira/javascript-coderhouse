@@ -10,7 +10,7 @@
     <h1 id="title-home">Bienvenido!</h1>
     <main>
         <img src="./assets/logo-juego.png" alt="Logo">
-        <div class="container">
+        <div id="formDiv" class="container">
             <form id="formulario">
                 <fieldset class="form-container">
                     <label for="nombre">Nombre del usuario:</label>
@@ -18,11 +18,20 @@
                     <br>
                     <label for="edad">Edad:</label>
                     <input type="number" class="edadJugador" id="edad" name="edad" placeholder="Edad" min="0" required>
+                    <p id="edadMinima" class="hidden">Disculpa, no puedes ingresar si eres menor de 18 años.</p>
                     <br>
                 </fieldset>
                 <input class="btn" type="submit" value="Comenzar">
             </form>
-        </div> 
+        </div>
+        <div id="gameContainer" class="gameContainer hidden">
+            <h2 id="welcome"></h2>
+            <h3 id="infoCartas">Tus cartas son:</h3>
+            <p></p>
+            <p></p>
+            <button id="hit">Pedir otra</button>
+            <button id="stay">Quedarse</button>
+        </div>
     </main>
     <script src="./script/scripts.js"></script>
 </body>
