@@ -26,9 +26,6 @@ document.getElementById("formulario").addEventListener("submit", function(event)
 })
 
 function juego() {
-/*  Intento de cambiar el titulo desde acá
-    let tituloJuego = document.getElementsByTagName("h1");
-    tituloJuego.innerText = "Comencemos..."; */
     
     let mazo = mazoCartas;
     let cartaElegida = mazo[Math.floor(Math.random() * mazo.length)];
