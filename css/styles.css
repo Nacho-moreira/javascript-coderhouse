@@ -31,6 +31,13 @@ main {
     color: #f8f8f8;
 }
 
+.resetBtn {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 12px;
+    padding: 8px;
+    margin-top: 20px;
+    border-radius: 12px;
+}
 
 .container {
     font-family: "Silkscreen", sans-serif;
@@ -46,9 +53,8 @@ main {
 }
 
 #edadMinima {
-    color: #c01111;
-    font-size: 10px;
-    background-color: #e9e9e9;
+    color: #d42c2c;
+    font-size: 12px;
 }
 
 #btnContainer {
@@ -70,7 +76,7 @@ main {
 .gameContainer {
     font-family: "Silkscreen", sans-serif;
     height: auto;
-    width: 700px;
+    width: 800px;
     border: 2px solid #363636;
     background-color: #838383;
     display: flex;
@@ -108,7 +114,10 @@ main {
 }
 
 .results {
-    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
     font-size: 24px;
 }
 

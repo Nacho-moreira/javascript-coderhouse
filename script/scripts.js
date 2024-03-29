@@ -7,17 +7,17 @@ const cardContainer = document.querySelector('.cardContainer');
 document.getElementById("formulario").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const nombreJugador = document.getElementById("nombre").value;
+    var nombreJugador = document.getElementById("nombre").value;
     const edadJugador = document.getElementById("edad").value;
     const edadMinima = document.getElementById('edadMinima');
-
-    localStorage.setItem('jugador', JSON.stringify(nombreJugador));
 
     if (edadJugador < 18) {
         edadMinima.classList.toggle('hidden');
     } else {
         formDiv.classList.toggle('hidden');
         gameContainer.classList.toggle('hidden');
+        const welcomeTitle = document.getElementById('welcome');
+        welcomeTitle.innerText = `Comencemos a jugar, ${nombreJugador}.`;
         juego()
     }
 })
@@ -55,10 +55,15 @@ function juego() {
     let mazo = mazoCartas;
     let cartaElegida = mazo[Math.floor(Math.random() * mazo.length)];
     let cardCounter = 0;
-    let jugador = localStorage.getItem('jugador');
     let resultsContainer = document.getElementById('resultsContainer');
-    const welcomeTitle = document.getElementById('welcome');
-    welcomeTitle.innerText = `Comencemos a jugar, ${jugador}.`;
+    let resultTitle = document.createElement('h4');
+
+    let resetBtn = document.getElementById('resetBtn');
+    resetBtn.addEventListener('click', (e)=> {
+        window.location.reload();
+    })
+
+    
 
     const hitBtn = document.getElementById('hit');
     hitBtn.addEventListener('click', (click) =>{
@@ -69,13 +74,19 @@ function juego() {
         cartaElegida = mazo[Math.floor(Math.random() * mazo.length)];
         if (cardCounter > 21) {
             hitBtn.disabled = true;
+            resultsContainer.classList.remove('hidden');
+            resultTitle.innerText = `¡Perdiste! Te pasaste de 21, tu puntaje es ${cardCounter}`;
+            resetBtn.classList.remove('hidden')
+            resultsContainer.appendChild(resultTitle);
         }
     });
 
     const stayBtn = document.getElementById('stay');
     stayBtn.addEventListener('click', (click) => {
+        stayBtn.disabled = true;
         resultsContainer.classList.remove('hidden');
-        let resultTitle = document.createElement('h4');
+        resetBtn.classList.remove('hidden')
+
         if (cardCounter > 21) {
             resultTitle.innerText = `¡Perdiste! Te pasaste de 21, tu puntaje es ${cardCounter}`;
         } else if (cardCounter == 21) {
