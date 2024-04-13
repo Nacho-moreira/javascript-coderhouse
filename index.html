@@ -7,19 +7,18 @@
     <title>Blackjack</title>
 </head>
 <body>
-    <h1 id="title-home">Bienvenido!</h1>
-    <button id="darkModeBtn" class="dark-mode-toggle darkBtn">Modo oscuro</button>
+    <h1 id="titleHome">Bienvenido!</h1>
+    <button id="darkModeBtn" class="darkModeToggle darkBtn">Modo oscuro</button>
     <main>
         <img src="./assets/logo-juego.png" alt="Logo">
         <div id="formDiv" class="container">
-            <form id="formulario">
-                <fieldset class="form-container">
-                    <label for="nombre">Nombre del usuario:</label>
-                    <input type="text" class="nombreJugador" id="nombre" name="nombre" placeholder="nombre de usuario" required>
+            <form id="form">
+                <fieldset class="formContainer">
+                    <label for="name">Nombre del usuario:</label>
+                    <input type="text" class="nombreJugador" id="name" name="name" placeholder="nombre de usuario" required>
                     <br>
-                    <label for="edad">Edad:</label>
-                    <input type="number" class="edadJugador" id="edad" name="edad" placeholder="Edad" min="0" required>
-                    <p id="edadMinima" class="hidden">Disculpa, no puedes ingresar si eres menor de 18 años.</p>
+                    <label for="age">Edad:</label>
+                    <input type="number" class="edadJugador" id="age" name="age" placeholder="Edad" min="0" required>
                     <br>
                 </fieldset>
                 <input class="btn" type="submit" value="Comenzar">
@@ -39,6 +38,7 @@
             </div>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./script/scripts.js"></script>
 </body>
 </html>

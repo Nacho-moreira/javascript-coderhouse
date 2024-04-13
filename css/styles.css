@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 
-#title-home {
+#titleHome {
     font-family: "Silkscreen", sans-serif;
     font-weight: 400;
     font-size: 55px;
@@ -50,11 +50,6 @@ main {
     justify-content: center;
     padding: 17px;
     border-radius: 27px;
-}
-
-#edadMinima {
-    color: #d42c2c;
-    font-size: 12px;
 }
 
 #btnContainer {
@@ -102,7 +97,7 @@ main {
     width: 35px;  
 }
 
-.form-container {
+.formContainer {
     font-size: 25px;
     height: 270px;
     display: flex;
@@ -121,13 +116,13 @@ main {
     font-size: 24px;
 }
 
-#nombre, #edad {
+#name, #age {
     font-family: "Silkscreen", sans-serif;
     font-size: 18px;
     transition: ease-in 0.2s;
     border-radius: 10px;
 }
-#nombre:focus, #edad:focus {
+#name:focus, #age:focus {
     font-size: 22px;
     color: #BDBBBE;
     background-color: #363636;

@@ -1,40 +1,45 @@
 
-let mazoCartas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+let cardDeck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 const formDiv = document.getElementById('formDiv');
 const gameContainer = document.querySelector('.gameContainer');
 const cardContainer = document.querySelector('.cardContainer');
 
-document.getElementById("formulario").addEventListener("submit", function(event) {
+
+document.getElementById("form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    var nombreJugador = document.getElementById("nombre").value;
-    const edadJugador = document.getElementById("edad").value;
-    const edadMinima = document.getElementById('edadMinima');
+    var playerName = document.getElementById("name").value;
+    const playerAge = document.getElementById("age").value;
 
-    if (edadJugador < 18) {
-        edadMinima.classList.toggle('hidden');
+    if (playerAge < 18) {
+        Swal.fire({
+            icon: "error",
+            title: "Disculpa",
+            text: "No cumples la edad mínima para ingresar al juego",
+            confirmButtonColor: '#d42c2c'
+          });
     } else {
         formDiv.classList.toggle('hidden');
         gameContainer.classList.toggle('hidden');
         const welcomeTitle = document.getElementById('welcome');
-        welcomeTitle.innerText = `Comencemos a jugar, ${nombreJugador}.`;
+        welcomeTitle.innerText = `Comencemos a jugar, ${playerName}.`;
         juego()
     }
 })
 
 const darkModeBtn = document.getElementById('darkModeBtn');
 const theme = document.body;
-let darkMode = localStorage.getItem('dark-mode');
+let darkMode = localStorage.getItem('darkMode');
 
 const enableDarkMode = () => {
     theme.classList.add('darkMode');
-    darkModeBtn.classList.remove('dark-mode-toggle');
-    localStorage.setItem('dark-mode', 'enabled');
+    darkModeBtn.classList.remove('darkModeToggle');
+    localStorage.setItem('darkMode', 'enabled');
 };
 const disableDarkMode = () => {
     theme.classList.remove('darkMode');
-    darkModeBtn.classList.add('dark-mode-toggle');
-    localStorage.setItem('dark-mode', 'disabled');
+    darkModeBtn.classList.add('darkModeToggle');
+    localStorage.setItem('darkMode', 'disabled');
 };
 
 if (darkMode === 'enabled') {
@@ -42,7 +47,7 @@ if (darkMode === 'enabled') {
 };
 
 darkModeBtn.addEventListener('click', (e)=> {
-    darkMode = localStorage.getItem('dark-mode');
+    darkMode = localStorage.getItem('darkMode');
     if (darkMode === 'disabled') {
         enableDarkMode();
     } else {
@@ -52,8 +57,8 @@ darkModeBtn.addEventListener('click', (e)=> {
 
 function juego() {
     
-    let mazo = mazoCartas;
-    let cartaElegida = mazo[Math.floor(Math.random() * mazo.length)];
+    let deck = cardDeck;
+    let chosenCard = mazo[Math.floor(Math.random() * deck.length)];
     let cardCounter = 0;
     let resultsContainer = document.getElementById('resultsContainer');
     let resultTitle = document.createElement('h4');
@@ -63,15 +68,13 @@ function juego() {
         window.location.reload();
     })
 
-    
-
     const hitBtn = document.getElementById('hit');
     hitBtn.addEventListener('click', (click) =>{
-        let muestraCarta = document.createElement('p');
-        muestraCarta.innerText = `${cartaElegida}`;
-        cardContainer.appendChild(muestraCarta);
-        cardCounter = cardCounter + cartaElegida;
-        cartaElegida = mazo[Math.floor(Math.random() * mazo.length)];
+        let showCard = document.createElement('p');
+        showCard.innerText = `${chosenCard}`;
+        cardContainer.appendChild(showCard);
+        cardCounter = cardCounter + chosenCard;
+        chosenCard = deck[Math.floor(Math.random() * deck.length)];
         if (cardCounter > 21) {
             hitBtn.disabled = true;
             resultsContainer.classList.remove('hidden');
